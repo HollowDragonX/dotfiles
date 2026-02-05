@@ -13,12 +13,29 @@
 
 
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+###################################################
+##▗▖  ▗▖ ▗▄▖ ▗▄▄▖ ▗▄▄▄▖ ▗▄▖ ▗▄▄▖ ▗▖   ▗▄▄▄▖ ▗▄▄▖ ##
+##▐▌  ▐▌▐▌ ▐▌▐▌ ▐▌  █  ▐▌ ▐▌▐▌ ▐▌▐▌   ▐▌   ▐▌    ##
+##▐▌  ▐▌▐▛▀▜▌▐▛▀▚▖  █  ▐▛▀▜▌▐▛▀▚▖▐▌   ▐▛▀▀▘ ▝▀▚▖ ##
+## ▝▚▞▘ ▐▌ ▐▌▐▌ ▐▌▗▄█▄▖▐▌ ▐▌▐▙▄▞▘▐▙▄▄▖▐▙▄▄▖▗▄▄▞▘ ##
+##                                               ##
+###################################################
+
+export BROWSER='firefox'
+export EDITOR='nvim'
+export HISTORY_IGNORE="(cd|cd -|cd ..|exit|history|ls|pwd|reboot|sudo reboot now|whoami|)"
+export PATH="$PATH"
+export SUDO_PROMPT='  You have summoned root. Prove your worth, mortal: [%u]: '
+export WAL_BACKEND='awww'
+
+## FOLDERS ## 
+export DEVELOPER_FOLDER='/mnt/data/home/hollowdragonx/Developer'
+export DOCUMENTS_FOLDER='/mnt/data/home/hollowdragonx/Documents'
+export DOWNLOADS_FOLDER='/mnt/data/home/hollowdragonx/Downloads'
+export GAMES_FOLDER='/mnt/data/home/hollowdragonx/Games'
+export HTB_FOLDER='/mnt/data/home/hollowdragonx/Documents/hackthebox'
+export MUSIC_FOLDER='/mnt/data/home/hollowdragonx/Music'
+export VIDEOS_FOLDER='/mnt/data/home/hollowdragonx/Videos'
 
 
 
@@ -34,7 +51,25 @@ fi
 alias cat='bat'
 
 # Clean up unused packages and cache in pacman
-alias clean='sudo pacman -Rns $(pacman -Qdtq) && sudo pacman -Sc'
+alias clean='sudo pacman -Rns $(pacman -Qdtq)'
+
+# Change directory to Developer folder
+alias dev='cd $DEVELOPER_FOLDER'
+
+# Change directory to Documents folder
+alias docs='cd $DOCUMENTS_FOLDER'
+
+# Change directory to Downloads folder
+alias dl="cd $DOWNLOADS_FOLDER"
+
+# Change directory to Games folder
+alias games="cd $GAMES_FOLDER"
+
+# Change directory to HackTheBox folder
+alias htb="cd $HTB_FOLDER"
+
+# Install a  specific package
+alias install='sudo pacman -S'
 
 # List all files, including hidden, with directories first
 alias la='lsd -a --group-dirs=first'
@@ -48,6 +83,9 @@ alias lla='lsd -lha --group-dirs=first'
 # Use 'lsd' to list files instead of 'ls' with directories first
 alias ls='lsd --group-dirs=first'
 
+# Change directory to Music folder
+alias music='cd $MUSIC_FOLDER'
+
 # Start netcat listener on a specified port
 alias ncx='nc -lnvp'
 
@@ -57,6 +95,8 @@ alias ping='ping -c 4'
 # Start a simple HTTP server using python
 alias pserver='python -m http.server'
 
+# Change directory to Videos folder
+alias vid='cd $VIDEOS_FOLDER'
 # Use 'gtop' for a modern, graphical process viewer instead of 'top'
 alias top='gtop'
 
@@ -96,13 +136,13 @@ bindkey "^[[H"  beginning-of-line
 HISTDUP=recent
 
 # File where command history is saved
-HISTFILE=~/.zsh_history
+HISTFILE=~/.history/.zsh_history
 
 # Number of commands to remember in the current session
 HISTSIZE=5000
 
 # Number of commands to save in the history file (HISTFILE)
-SAVEHIST=5000
+SAVEHIST=10000
 
 # Keep previous command history when the shell is closed and reopened
 # (Avoids that the HISTFILE is overwritten with only the current session history)
@@ -125,21 +165,26 @@ setopt sharehistory
 
 
 
-########################################################################
+#########################################################################
 ## ▗▖  ▗▖▗▄▄▄▖ ▗▄▄▖ ▗▄▄▖▗▄▄▄▖▗▖   ▗▖    ▗▄▖ ▗▖  ▗▖▗▄▄▄▖ ▗▄▖ ▗▖ ▗▖ ▗▄▄▖ ##
 ## ▐▛▚▞▜▌  █  ▐▌   ▐▌   ▐▌   ▐▌   ▐▌   ▐▌ ▐▌▐▛▚▖▐▌▐▌   ▐▌ ▐▌▐▌ ▐▌▐▌    ##
 ## ▐▌  ▐▌  █   ▝▀▚▖▐▌   ▐▛▀▀▘▐▌   ▐▌   ▐▛▀▜▌▐▌ ▝▜▌▐▛▀▀▘▐▌ ▐▌▐▌ ▐▌ ▝▀▚▖ ##
 ## ▐▌  ▐▌▗▄█▄▖▗▄▄▞▘▝▚▄▄▖▐▙▄▄▖▐▙▄▄▖▐▙▄▄▖▐▌ ▐▌▐▌  ▐▌▐▙▄▄▖▝▚▄▞▘▝▚▄▞▘▗▄▄▞▘ ##
 ##                                                                     ## 
-########################################################################
+#########################################################################
 
-# To customize prompt, run 'p10k configure' or edit ~/.p10k.zsh
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+# Initialize starship prompt 
+eval "$(starship init zsh)"
 
 # Prevents Java AWT windows from being reparented
 export _JAVA_AWT_WM_NONREPARENTING=1
 
+# Start fastfetch when terminal is open
+fastfetch
+
+# Loads custom functions
+source ~/.config/zsh/functions.zsh
+source ~/.config/zsh/nmap.zsh
 
 
 ##########################################
@@ -161,17 +206,4 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 
 
-###################################################
-##▗▖  ▗▖ ▗▄▖ ▗▄▄▖ ▗▄▄▄▖ ▗▄▖ ▗▄▄▖ ▗▖   ▗▄▄▄▖ ▗▄▄▖ ##
-##▐▌  ▐▌▐▌ ▐▌▐▌ ▐▌  █  ▐▌ ▐▌▐▌ ▐▌▐▌   ▐▌   ▐▌    ##
-##▐▌  ▐▌▐▛▀▜▌▐▛▀▚▖  █  ▐▛▀▜▌▐▛▀▚▖▐▌   ▐▛▀▀▘ ▝▀▚▖ ##
-## ▝▚▞▘ ▐▌ ▐▌▐▌ ▐▌▗▄█▄▖▐▌ ▐▌▐▙▄▞▘▐▙▄▄▖▐▙▄▄▖▗▄▄▞▘ ##
-##                                               ##
-###################################################
-
-export BROWSER='firefox'
-export EDITOR='nvim'
-export HISTORY_IGNORE="(cd|cd -|cd ..|exit|history|ls|pwd|reboot|sudo reboot now|whoami|)"
-export PATH="$PATH"
-export SUDO_PROMPT='  Authorization required, mortal: [%u]: '
 
