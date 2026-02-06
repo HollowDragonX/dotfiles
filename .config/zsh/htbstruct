@@ -1,0 +1,23 @@
+set-htbstruct() {
+    [[ -z "$1" ]] && return 1
+
+    PROJECT="$1"
+    mkdir -p "$PROJECT" >/dev/null 2>&1
+    cd "$PROJECT" || return 1
+
+    mkdir -p loot screenshots scripts scans/{nmap,ffuf} notes >/dev/null 2>&1
+
+    python3 -m venv .venv >/dev/null 2>&1
+    source .venv/bin/activate >/dev/null 2>&1
+
+    pip install --upgrade pip >/dev/null 2>&1
+    pip install mkdocs-material >/dev/null 2>&1
+
+    (
+        cd notes || exit
+        mkdocs new . >/dev/null 2>&1
+        mkdir -p docs
+        touch docs/{about.md,loot.md,vulns.md,play.md}
+    ) >/dev/null 2>&1
+
+}
