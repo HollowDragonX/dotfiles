@@ -12,6 +12,7 @@
 ##############################################
 
 
+
 #######################
 ## ▖▖▄▖▄▖▄▖▄▖▄ ▖ ▄▖▄▖##
 ## ▌▌▌▌▙▘▐ ▌▌▙▘▌ ▙▖▚ ##
@@ -25,13 +26,15 @@ export HISTORY_IGNORE="(cd|cd -|cd ..|exit|history|ls|pwd|reboot|sudo reboot now
 export PATH="$PATH"
 export SUDO_PROMPT=' Accessing god mode... authenticate [%u]: '
 export WAL_BACKEND='awww'
+export ZSH_SCRIPTS="$HOME/.config/zsh/scripts"
+
+
 
 # OVPN FILES #
-export HTB_ACADEMY=''
-export HTB_STARTING=''
-export HTB_MACHINES=''
-export HTB_SEASONAL=''
-
+export HTB_ACADEMY='$HOME/.config/openvpn/hackthebox/htb_academy.ovpn'
+export HTB_STARTING='$HOME/.config/openvpn/hackthebox/htb_starting.ovpn'
+export HTB_MACHINES='$HOME/.config/openvpn/hackthebox/htb_machines.ovpn'
+export HTB_SEASONAL='$HOME/.config/openvpn/hackthebox/htb_seasonal.ovpn'
 
 ## FOLDERS ## 
 export DEVELOPER_FOLDER='/mnt/data/home/hollowdragonx/Developer'
@@ -155,19 +158,10 @@ bindkey "^[[H"  beginning-of-line
 ##                     ##
 #########################                    
 
-set-htb() {
-	
-	local CURRENT_WINDOW_ID="$KITTY_WINDOW_ID"
-
-  	kitty @ launch --type=tab --tab-title " HTB VPN"
-  	kitty @ launch --type=tab --tab-title "󱞁 Notes"
-	kitty @ launch --type=tab --tab-title " General"
-	kitty @ launch --type=tab --tab-title " Recon"
-	kitty @ launch --type=tab --tab-title " Listener"
-	kitty @ launch --type=tab --tab-title " Exploit"
-	
-	kitty @ close-window --match "id:$CURRENT_WINDOW_ID"
-}
+# Load all the scripts
+for script in "$ZSH_SCRIPTS"/*; do
+  [[ -r "$script" ]] && source "$script"
+done
 
 
 
