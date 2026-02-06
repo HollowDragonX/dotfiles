@@ -12,21 +12,26 @@
 ##############################################
 
 
-
-###################################################
-##▗▖  ▗▖ ▗▄▖ ▗▄▄▖ ▗▄▄▄▖ ▗▄▖ ▗▄▄▖ ▗▖   ▗▄▄▄▖ ▗▄▄▖ ##
-##▐▌  ▐▌▐▌ ▐▌▐▌ ▐▌  █  ▐▌ ▐▌▐▌ ▐▌▐▌   ▐▌   ▐▌    ##
-##▐▌  ▐▌▐▛▀▜▌▐▛▀▚▖  █  ▐▛▀▜▌▐▛▀▚▖▐▌   ▐▛▀▀▘ ▝▀▚▖ ##
-## ▝▚▞▘ ▐▌ ▐▌▐▌ ▐▌▗▄█▄▖▐▌ ▐▌▐▙▄▞▘▐▙▄▄▖▐▙▄▄▖▗▄▄▞▘ ##
-##                                               ##
-###################################################
+#######################
+## ▖▖▄▖▄▖▄▖▄▖▄ ▖ ▄▖▄▖##
+## ▌▌▌▌▙▘▐ ▌▌▙▘▌ ▙▖▚ ##
+## ▚▘▛▌▌▌▟▖▛▌▙▘▙▖▙▖▄▌##
+##                   ##
+#######################
 
 export BROWSER='firefox'
 export EDITOR='nvim'
 export HISTORY_IGNORE="(cd|cd -|cd ..|exit|history|ls|pwd|reboot|sudo reboot now|whoami|)"
 export PATH="$PATH"
-export SUDO_PROMPT='  You have summoned root. Prove your worth, mortal: [%u]: '
+export SUDO_PROMPT=' Accessing god mode... authenticate [%u]: '
 export WAL_BACKEND='awww'
+
+# OVPN FILES #
+export HTB_ACADEMY=''
+export HTB_STARTING=''
+export HTB_MACHINES=''
+export HTB_SEASONAL=''
+
 
 ## FOLDERS ## 
 export DEVELOPER_FOLDER='/mnt/data/home/hollowdragonx/Developer'
@@ -39,13 +44,21 @@ export VIDEOS_FOLDER='/mnt/data/home/hollowdragonx/Videos'
 
 
 
-###############################
-##  ▗▄▖ ▗▖   ▗▄▄▄▖ ▗▄▖  ▗▄▄▖ ##
-## ▐▌ ▐▌▐▌     █  ▐▌ ▐▌▐▌    ##
-## ▐▛▀▜▌▐▌     █  ▐▛▀▜▌ ▝▀▚▖ ##
-## ▐▌ ▐▌▐▙▄▄▖▗▄█▄▖▐▌ ▐▌▗▄▄▞▘ ##
-##                           ##
-###############################
+###############
+## ▄▖▖ ▄▖▄▖▄▖##
+## ▌▌▌ ▐ ▌▌▚ ##
+## ▛▌▙▖▟▖▛▌▄▌##
+##           ##
+###############
+
+# Go back one directory
+alias ..='cd ..'
+
+# Go back two directories
+alias ...='cd ../..'
+
+# Go back three directories
+alias ....='cd ../../..'
 
 # Use 'bat' for syntax-highlighted file viewing instead of 'cat'
 alias cat='bat'
@@ -67,6 +80,18 @@ alias games="cd $GAMES_FOLDER"
 
 # Change directory to HackTheBox folder
 alias htb="cd $HTB_FOLDER"
+
+# Connect to HackTheBox Academy
+alias htba="sudo openvpn $HTB_ACADEMY"
+
+# Connect to HackTheBox Starting Point
+alias htbss="sudo openvpn $HTB_STARTING"
+
+# Connect to HackTheBox Machines
+alias htbm="sudo openvpn $HTB_MACHINES"
+
+# Connect to HackTheBox Seasonal
+alias htbs="sudo openvpn $HTB_SEASONAL"
 
 # Install a  specific package
 alias install='sudo pacman -S'
@@ -105,13 +130,12 @@ alias update='sudo pacman -Syu && sudo updatedb'
 
 
 
-#################################
-## ▗▄▄▖ ▗▄▄▄▖▗▖  ▗▖▗▄▄▄   ▗▄▄▖ ##
-## ▐▌ ▐▌  █  ▐▛▚▖▐▌▐▌  █ ▐▌    ##
-## ▐▛▀▚▖  █  ▐▌ ▝▜▌▐▌  █  ▝▀▚▖ ##
-## ▐▙▄▞▘▗▄█▄▖▐▌  ▐▌▐▙▄▄▀ ▗▄▄▞▘ ##
-##                             ## 
-#################################
+################
+## ▄ ▄▖▖ ▖▄ ▄▖##
+## ▙▘▐ ▛▖▌▌▌▚ ##
+## ▙▘▟▖▌▝▌▙▘▄▌##
+##            ##
+################
 
 # Bind delete key to delete the character under the cursor
 bindkey "^[[3~" delete-char
@@ -124,13 +148,35 @@ bindkey "^[[H"  beginning-of-line
 
 
 
-########################################
-## ▗▖ ▗▖▗▄▄▄▖ ▗▄▄▖▗▄▄▄▖▗▄▖ ▗▄▄▖▗▖  ▗▖ ##
-## ▐▌ ▐▌  █  ▐▌     █ ▐▌ ▐▌▐▌ ▐▌▝▚▞▘  ##
-## ▐▛▀▜▌  █   ▝▀▚▖  █ ▐▌ ▐▌▐▛▀▚▖ ▐▌   ##
-## ▐▌ ▐▌▗▄█▄▖▗▄▄▞▘  █ ▝▚▄▞▘▐▌ ▐▌ ▐▌   ##
-##                                    ##
-########################################
+#########################
+## ▄▖▖▖▖ ▖▄▖▄▖▄▖▄▖▖ ▖▄▖##
+## ▙▖▌▌▛▖▌▌ ▐ ▐ ▌▌▛▖▌▚ ##
+## ▌ ▙▌▌▝▌▙▖▐ ▟▖▙▌▌▝▌▄▌##
+##                     ##
+#########################                    
+
+set-htb() {
+	
+	local CURRENT_WINDOW_ID="$KITTY_WINDOW_ID"
+
+  	kitty @ launch --type=tab --tab-title " HTB VPN"
+  	kitty @ launch --type=tab --tab-title "󱞁 Notes"
+	kitty @ launch --type=tab --tab-title " General"
+	kitty @ launch --type=tab --tab-title " Recon"
+	kitty @ launch --type=tab --tab-title " Listener"
+	kitty @ launch --type=tab --tab-title " Exploit"
+	
+	kitty @ close-window --match "id:$CURRENT_WINDOW_ID"
+}
+
+
+
+###################
+## ▖▖▄▖▄▖▄▖▄▖▄▖▖▖##
+## ▙▌▐ ▚ ▐ ▌▌▙▘▌▌##
+## ▌▌▟▖▄▌▐ ▙▌▌▌▐ ##
+##               ##
+###################
 
 # Saves duplicates only if they are not consecutive
 HISTDUP=recent
@@ -164,14 +210,12 @@ setopt hist_save_no_dups
 setopt sharehistory
 
 
-
-#########################################################################
-## ▗▖  ▗▖▗▄▄▄▖ ▗▄▄▖ ▗▄▄▖▗▄▄▄▖▗▖   ▗▖    ▗▄▖ ▗▖  ▗▖▗▄▄▄▖ ▗▄▖ ▗▖ ▗▖ ▗▄▄▖ ##
-## ▐▛▚▞▜▌  █  ▐▌   ▐▌   ▐▌   ▐▌   ▐▌   ▐▌ ▐▌▐▛▚▖▐▌▐▌   ▐▌ ▐▌▐▌ ▐▌▐▌    ##
-## ▐▌  ▐▌  █   ▝▀▚▖▐▌   ▐▛▀▀▘▐▌   ▐▌   ▐▛▀▜▌▐▌ ▝▜▌▐▛▀▀▘▐▌ ▐▌▐▌ ▐▌ ▝▀▚▖ ##
-## ▐▌  ▐▌▗▄█▄▖▗▄▄▞▘▝▚▄▄▖▐▙▄▄▖▐▙▄▄▖▐▙▄▄▖▐▌ ▐▌▐▌  ▐▌▐▙▄▄▖▝▚▄▞▘▝▚▄▞▘▗▄▄▞▘ ##
-##                                                                     ## 
-#########################################################################
+##################################
+## ▖  ▖▄▖▄▖▄▖▄▖▖ ▖ ▄▖▖ ▖▄▖▄▖▖▖▄▖##
+## ▛▖▞▌▐ ▚ ▌ ▙▖▌ ▌ ▌▌▛▖▌▙▖▌▌▌▌▚ ##
+## ▌▝ ▌▟▖▄▌▙▖▙▖▙▖▙▖▛▌▌▝▌▙▖▙▌▙▌▄▌##
+##                              ##
+##################################
 
 # Initialize starship prompt 
 eval "$(starship init zsh)"
@@ -182,18 +226,14 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Start fastfetch when terminal is open
 fastfetch
 
-# Loads custom functions
-source ~/.config/zsh/functions.zsh
-source ~/.config/zsh/nmap.zsh
 
 
-##########################################
-## ▗▄▄▖ ▗▖   ▗▖ ▗▖ ▗▄▄▖▗▄▄▄▖▗▖  ▗▖ ▗▄▄▖ ##
-## ▐▌ ▐▌▐▌   ▐▌ ▐▌▐▌     █  ▐▛▚▖▐▌▐▌    ##
-## ▐▛▀▘ ▐▌   ▐▌ ▐▌▐▌▝▜▌  █  ▐▌ ▝▜▌ ▝▀▚▖ ##
-## ▐▌   ▐▙▄▄▖▝▚▄▞▘▝▚▄▞▘▗▄█▄▖▐▌  ▐▌▗▄▄▞▘ ##
-##                                      ##
-##########################################
+####################
+## ▄▖▖ ▖▖▄▖▄▖▖ ▖▄▖##
+## ▙▌▌ ▌▌▌ ▐ ▛▖▌▚ ##
+## ▌ ▙▖▙▌▙▌▟▖▌▝▌▄▌##
+##                ##
+####################
 
 # Suggests commands as you type based on history
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
